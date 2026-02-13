@@ -1,0 +1,155 @@
+<div class="page-content">
+  <h2>Section 11: Panel 2 -- AI for Industry</h2>
+
+  <div class="transcript">
+    <span class="speaker speaker--host">Chuck (Moderator):</span>
+    <p>We'll have each of our panelists come out and do a quick sharing one by one, and then we'll all go up together for organized questions -- and of course we really want to make it interactive. First, let me invite Hoyon Pun, General Manager at Microsoft Research, to share with us.</p>
+
+    <span class="speaker speaker--guest">Hoyon Pun (Microsoft Research):</span>
+    <p>It's a wonderful gathering and there have been lots of exciting discussions about math and basic sciences. Here I want to highlight another really exciting frontier: the medical sciences. There has quietly been a giant wave of deep innovation in AI for medical discovery, and one key part of this paradigm shift is AI opening new possibilities in clinical trials.</p>
+    <p>If you think about medical discovery today, at a grand scheme of things, it advances one clinical trial at a time. This process is largely manual, incredibly inefficient. A single Phase III trial takes years to execute and costs a hundred million dollars or more, and despite spending so much, everyone still complains it gives you relatively limited information for a small sample size.</p>
+    <p>As a first example, we collaborated with Providence -- the third-largest health system in the U.S. -- and developed an AI called TrialScope. The gist is that we enable medical scientists to utilize real-world patient journey data to conduct clinical trials virtually. We demonstrated you can simulate a clinical trial end-to-end directly from unstructured electronic health records. This virtual trial can be just as accurate as real ones -- we compared against the gold standard trial for blockbuster cancer treatments. For example, KEYNOTE-10 is for Keytruda, one of the best immunotherapy drugs with revenue of $30 billion. Virtual trials can be much faster and cheaper.</p>
+    <p>Why is this possible? Partially because of rapid digitization in biomedicine. A lot of those patient journeys -- from diagnosis to treatment to outcome -- are now routinely collected in average clinical care. Every day you have billions of data points collecting patient journeys. If we can distill the insights, it becomes a population-scale free lunch.</p>
+    <p>You can do much more by going beyond text modality and considering multimodal AI. All that clinical text is actually highly incomplete -- a noisy approximation of the patient journey. Over the years, my medical friends started telling me jokes. Radiologists told me they sometimes don't agree with themselves from two months ago on the same image. Pathologists gave me a trick: turn the pathology slide 90 degrees and you see different things. These are some of the smartest people in the world, but the challenge is that our visual cortex didn't evolve reading MRIs. AI can potentially enable them to acquire that kind of medical super-intelligence.</p>
+    <p>Keytruda, despite being a frontier drug, has an overall response rate of only 20%. You don't know which 20%. The tumor microenvironment holds the ultimate secret for precision immunology. New technologies like spatial proteomics allow you to simultaneously measure multiple proteins at the individual cellular level while preserving spatial information. That gives you a digital map encoding the tumor microenvironment grammar that dictates immune response -- the life or death of a patient.</p>
+    <p>There's one catch: this data is very expensive. Generating data for a single tissue takes days and costs thousands of dollars. If we wanted spatial proteomics for everyone on the globe, it would bankrupt humanity. So we collaborated with Providence and the University of Washington and developed a multimodal AI called GigaTime that can simulate this expensive spatial proteomics information from dirt-cheap pathology slides -- a couple dollars per slide and readily available.</p>
+    <p>With this capability, we applied GigaTime to 14,000 cancer patients, generating over 300,000 virtual spatial proteomics analyses. Then we could run virtual multimodal AI trials, correlating cell states in tumor microenvironments with clinical variables like disease progression and tumor response. This enabled us to uncover over a thousand significant associations. This kind of large-scale study was previously unthinkable because of cost.</p>
+    <p>The holy grail is simulating the longitudinal patient journey. GPT-4 learns by predicting next token. Virtual patients can learn by predicting next medical event. As a baby step, we collaborated with Epic and Yale and built what is probably the largest virtual patient model, called Curiosity, trained on hundreds of millions of patient journeys. By doing this seemingly simple simulation at very large scale, the model starts to acquire emerging capabilities. Out of the box, it matches or outperforms supervised models specifically built for each of 78 clinical tasks. To us, this is a glimpse of the GPT moment for virtual patients.</p>
+
+    <span class="speaker speaker--host">Chuck (Moderator):</span>
+    <p>I love it. Next, let me invite Hal from Nvidia to share with us from Nvidia's perspective.</p>
+
+    <span class="speaker speaker--guest">Chentao (Nvidia):</span>
+    <p>Thanks everyone. There are certain things at Nvidia we cannot talk about, but today I'll speak from the perspective of a scientist about what I think will be the most critical innovation in the next couple of years to enable AI to make groundbreaking contributions in science. I'll be talking about world models.</p>
+    <p>The motivation is that in the development of models -- for example in math and coding -- if the answer is easily verifiable, we see very rapid progress. Where answers are not easily verifiable, we see pretty slow progress. So for scientific discovery, ideally if we can get feedback really fast in a scalable manner, we'll be able to make discoveries faster.</p>
+    <p>In traditional simulation, there's been lots of effort to optimize computation and build physical models. Generally they require full specification -- the full state, noise distribution, boundary conditions, precise mathematical equations governing the evolution of the system. But if we go to the other extreme of conducting wet lab experiments, many things are underspecified and partially observed -- and there's also a general issue of reproducibility.</p>
+    <p>I think there could be an approach that works in the middle. We can apply what we've learned from the "bitter lesson" to simulations -- absorbing the underspecification into latent states by feeding in real outcomes. In some sense it's way cheaper than wet labs but also captures real-world complexity that traditional simulation misses.</p>
+    <p>What do I mean by a world model? It's a generative dynamic model that supports intervention queries and calibrated uncertainty. The world model needs to predict what happens to the next state and observation, conditioned on the current state and actions taken by an agent. Agents could take arbitrary actions -- maybe actions very hard to take in a real wet lab -- and the world model should accurately predict what happens next.</p>
+    <p>Crucially, the world model should tell us how confident it is in its predictions. When we're doing extrapolation, we need to understand the corresponding uncertainty so it guides experiment design. If we can achieve closed-loop science -- borrowing from the insights we've gained from formally verifiable math -- we really have the potential to significantly accelerate the speed of scientific discovery.</p>
+
+    <span class="speaker speaker--host">Chuck (Moderator):</span>
+    <p>Ladies and gentlemen, we just have a new beautiful word -- "world model" -- understanding everything about the world. Next, we have Erin, Head of Science from Amazon AWS.</p>
+
+    <span class="speaker speaker--guest">Erin (Amazon AWS):</span>
+    <p>Today I'm going to talk about using foundation models for the molecular world, an ongoing collaboration with my Stanford collaborators. If you look at current foundation models, there are two types. General-purpose models like GPT and Claude are great, but if you give them a structural understanding problem of a protein, they can't actually learn the structure -- they may give correct answers, but they're mostly remembering from training data. Give them a novel protein and you're out of luck.</p>
+    <p>Then there are specialized models like AlphaFold -- they solve specific tasks but can't generalize. Give them a harder problem and they can't reason about it or leverage adaptive compute.</p>
+    <p>I see a paradigm shift: for the first time, we have models that are truly intelligent. Could we leverage all this intelligence and reasoning to actually help the molecular world -- designing drugs, antibodies, small molecules?</p>
+    <p>We have a vision we call "ThinkProte." It's like a human scientist: given a task -- say, design a binder that binds to the SARS-CoV-2 spike receptor binding domain and blocks ACE2 -- the system looks at the protein sequence and structure and starts contemplating, like a chain of thought. It considers structural constraints, identifies key residues, and then a diffusion model actually designs the binder. By leveraging reasoning and adaptive compute, it can bridge the gap and generalize out of distribution.</p>
+    <p>The challenges are significant. There's a big data problem -- protein sequence data is abundant, but structure data is only about 200,000 entries. For reasoning, where do you get "chains of thought"? Bio experts have thinking processes but they typically don't write them down. And model architecture -- because of data limitations, you can't brute-force scale up like large language models.</p>
+    <p>Exciting future directions include closing the loop with reinforcement learning driven optimization using both computational rewards and world models for molecules, and eventually experimental validation with a lab-in-the-loop. We hope to have systems that are truly self-improving to solve all kinds of drug design problems.</p>
+
+    <span class="speaker speaker--host">Chuck (Moderator):</span>
+    <p>Thank you. And now Sebastian Bubeck, formerly VP of AI at Microsoft, now a technical leader at OpenAI.</p>
+
+    <span class="speaker speaker--guest">Sebastian Bubeck (OpenAI):</span>
+    <p>I'm going to do something slightly ambitious. In five minutes, I want to tell you a mathematical theorem and make sure all of you understand it -- it's accessible at roughly middle school level. The reason I'm doing this is I'd like to ground the discussion in what is really the level of intelligence of these models right now.</p>
+    <p>This is a combinatorics question. You have a graph -- a network with vertices and edges -- and one of the most basic questions is counting subgraphs. Maybe I count the number of cliques, the number of independent sets, or the number of subgraphs that look like an "H." The question is: are there constraints between these different counts?</p>
+    <p>This is extremely basic in combinatorics but turns out to be incredibly hard. In general, answering linear inequalities between different subgraph counts is undecidable. But the most basic version, going back to 1904 from Mantel, is about the relation between the number of edges and the number of triangles.</p>
+    <p>It turns out that for trees, the set of possible relationships between subtree counts is actually a convex set -- something I showed with Nati Linial more than a decade ago. On five vertices, there are three types of trees: a star, a path, and a Y-shape. We conjectured in a 2013 paper what the full set of possibilities looks like, shaped by structures we called "millipedes." We were able to prove a lower bound but couldn't show any faces of the polytope were tight.</p>
+    <p>I gave this problem to many students when I was at Princeton. Every year, new students would come, I would tell them this problem, nobody would come back with a solution. I myself spent months working on it. Finally, three very good students and I were able to prove that the first part of the polytope is actually tight. In the same paper, we disproved everything else we conjectured -- everything was false -- except this second inequality remained open for ten years.</p>
+    <p>With GPT-5, which started to be good at mathematics, I thought it was a good time to revisit this question. If you ask GPT-5 directly, there's no way it can solve it -- this is way too hard. So we built a scaffolding around GPT-5 -- a general scaffolding with agents that propose ideas, agents that execute them, agents that verify, agents that merge different things.</p>
+    <p>After two days of sequential computation, it came back with a proof. But importantly, I did not ask the second inequality directly. I knew that would be too hard. So I asked the first question first -- for which I already knew a solution. The model thought for two days, came back with a solution, and I put that in context and said, "Now go attack this generalization." And it came back with a proof.</p>
+    <p>What's interesting is that in this proof, the model comes up with a miraculous identity on trees that I have no idea where it's coming from. I've asked experts who spend a lot more time thinking about combinatorics of trees, and they also don't know where it came from. It really solves the problem.</p>
+    <p>In the discussion of how academia can interact with frontier labs -- here's one example of a question: with this scaffolding, I have millions of tokens, dozens of books worth of material that the model has written to arrive at the final solution. Where in this library is the moment where the model got the insight? Finding an automatic way to discover the insight -- I think that's something important for academia to pursue.</p>
+
+    <span class="speaker speaker--host">Chuck (Moderator):</span>
+    <p>Now for questions. Where are your thoughts on the current trajectory of AI -- its strengths, limitations, and what research directions excite you most?</p>
+
+    <span class="speaker speaker--guest">Sebastian Bubeck (OpenAI):</span>
+    <p>This is why I wanted to give the five-minute presentation. You see, GPT-5 solved a problem on which I spent a month thinking. It's not a huge open problem by any means, but that's roughly the timescale at which these models can work right now. There's this concept of "AGI time": for how long can the AI mimic human thinking? GPT-4 was AGI seconds -- anything a human could do in a few seconds. With O1, we moved to AGI minutes. The model that won the IMO gold medal was AGI hours. Now we are at AGI days, maybe weeks in some cases.</p>
+    <p>When somebody asks why these models haven't invented a new field yet -- there's completely miscalibrated expectations here. If you want to solve a really hard problem, you need years of thinking. Models cannot do that at all. We're limited to weeks. This is like a starting grad student project. Nothing more than that.</p>
+    <p>In terms of limitations -- I think there are no limitations whatsoever. I don't see any. In terms of exciting research directions, I see at least ten orthogonal directions, all with the potential to make real progress. I used to say there's work for a generation of scientists to understand deep learning. Now I think there's work for a century.</p>
+
+    <span class="speaker speaker--host">Audience Member:</span>
+    <p>What's the biggest hidden challenge when moving an AI model from research prototype to large-scale production?</p>
+
+    <span class="speaker speaker--guest">Hoyon Pun (Microsoft Research):</span>
+    <p>There's this buzzword from Davos -- "capability overhang." The underlying technology potential grows very fast, but real-world impact progresses much more slowly. There's a growing gap between what might be possible and what we actually get. I think about an AI application spectrum from productivity gain to creativity gain.</p>
+    <p>Productivity gain is the boring stuff -- automating tedious, expensive, time-consuming tasks that humans can already do. In that region, the productization gap is going to close very rapidly. In medicine, the clinical trial process is unbelievably inefficient -- the technology is arguably ready, you just need to figure out change management, workflow, ecosystem, and business model.</p>
+    <p>Then there's the creativity gain -- things no human being can do alone. Can you imagine a doctor internalizing a billion people's multimodal longitudinal patient journeys? AI can potentially get them there. The holy grail is building a weather-forecasting system for virtual patients -- predicting exactly what would happen. If we can get to even decent accuracy, we get very close to precision health. Obviously we're not there yet, but that's why it's so exciting.</p>
+
+    <span class="speaker speaker--guest">Sebastian Bubeck (OpenAI):</span>
+    <p>I personally see three roles of science. One is acting on the world -- making us more powerful, creating more things. That's technology. Another is understanding the world we live in -- purely for the sake of understanding. And then science is fun to do, like a game, with competition: you want to be the smartest and the fastest.</p>
+    <p>For the technological aspect, AI just makes us faster and better. It's pure benefit for everybody. For the competitive aspect, I think it kind of kills the game -- like chess, people will still do it in their spare time, but it will be much less prevalent as a career motivation.</p>
+    <p>The one I care most about is understanding. When AI comes back with a solution and you don't understand why -- in my example, I don't understand where the identity came from -- that remains unsatisfying. I'm hoping that AI will force the scientific community to put understanding back at the center of our enterprise. Maybe we should write fewer papers in the future. What is our unique human expertise? It's not writing more papers -- AI will be better at that. It's consolidating knowledge and explaining it in a way that other humans can truly appreciate and understand.</p>
+
+    <span class="speaker speaker--guest">Hoyon Pun (Microsoft Research):</span>
+    <p>First, my old job has already been replaced, so that makes me fearless. I was trained as an NLP guy, and when I saw GPT-4 a few months before release, I knew my job was done there. I had to find another job.</p>
+    <p>On a more serious note -- the most immediate thing for me is when loved ones or friends come telling me they have cancer. I just had an old colleague at Microsoft Research diagnosed with colorectal cancer, stage 4 with lung metastasis. Very depressing -- pretty much nothing can be done. I'm hoping AI will replace my job there, to solve cancer. Then let's solve Alzheimer's, neurodegeneration, autoimmune disease -- we have no clue yet.</p>
+    <p>Long-term, I think about AI as a very powerful tool. If I build a perfect virtual patient that can predict exactly what happens -- on one hand you can use it for precision health, but on the other hand an insurance company could use it to deny your coverage. How do we think about that? I hope humans will dictate the value proposition there.</p>
+
+    <span class="speaker speaker--host">Chuck (Moderator):</span>
+    <p>Last question: as the S Foundation aims to build a collaborative ecosystem for science and AI, what do you envision for your company in this partnership?</p>
+
+    <span class="speaker speaker--guest">Sebastian Bubeck (OpenAI):</span>
+    <p>One thing we do have at OpenAI is a lot of compute -- more than four GPUs. If we really realize this dream of transforming compute into intelligence, I could imagine academia and other partners choosing problems they really care about, reaching a consensus, and then we help realize that. For the moment, we can select a few mathematical problems and do the scaffolding I talked about, maybe running it for a week instead of two days.</p>
+
+    <span class="speaker speaker--guest">Chentao (Nvidia):</span>
+    <p>I want to emphasize that Nvidia has an academic grants program, currently offering Hopper H100 GPUs. One possibility would be for academia and industry to work together to figure out the most exciting projects. We have a call for proposals, and researchers get access to GPUs and our cloud for at least six months with mutually agreed-upon projects. Through this approach, we can figure out the most critical questions academia can work on that have outsized impact on the overall community.</p>
+
+    <span class="speaker speaker--host">Audience Member:</span>
+    <p>What about quantum computing and its effect on AI?</p>
+
+    <span class="speaker speaker--guest">Sebastian Bubeck (OpenAI):</span>
+    <p>I'm very bearish on quantum computing for AI. The community has looked at it for several decades and there is really not much use case in AI. There are lots of use cases in simulating physical models, chemistry, and those things -- for that, yes, it will be an amazing tool. But the direction toward AGI -- general human-like intelligence that can use tools -- quantum computing is going to be just one tool among many that our future AGI will use. That's how I think about it, rather than using quantum computing to improve AI itself.</p>
+
+    <span class="speaker speaker--guest">Chentao (Nvidia):</span>
+    <p>I'm actually pretty bullish on quantum, maybe slightly differently. We do have a pretty big quantum research group and some exciting new products. There will be specific applications where quantum really performs well, but maybe the connection with AI takes more time to figure out.</p>
+  </div>
+
+  <div class="commentary">
+    <h3>Explained Simply</h3>
+
+    <div class="commentary-section">
+      <h4>Industry's AI Frontlines</h4>
+      <p>This panel brings together leaders from four major tech companies -- Microsoft Research, Nvidia, Amazon AWS, and OpenAI -- to discuss how AI is being deployed in real-world science and what comes next. The presentations range from virtual clinical trials for cancer treatment, to "world models" that simulate physical reality, to AI systems that can design new drug molecules, to mathematical theorem proving. What ties them together is a shared conviction that AI is moving from a research curiosity to a transformative tool for scientific discovery, but that the hardest problems -- and the biggest payoffs -- still lie ahead.</p>
+    </div>
+
+    <div class="definition-box">
+      <strong>Virtual Clinical Trial:</strong> Using AI to simulate the results of a medical trial using existing patient records, rather than enrolling new patients in expensive, time-consuming studies. Hoyon Pun's "TrialScope" system at Microsoft shows this can match the accuracy of real trials for certain cancer treatments -- at a fraction of the cost and time.
+    </div>
+
+    <div class="definition-box">
+      <strong>World Model:</strong> A generative AI model that simulates how a system evolves over time in response to different actions or interventions. Unlike a traditional physics simulation (which requires writing down exact equations), a world model learns patterns from real data and can predict what happens next -- even in messy, partially observed situations like biology experiments. Critically, a good world model should also report how confident it is in its predictions.
+    </div>
+
+    <div class="definition-box">
+      <strong>Capability Overhang:</strong> The growing gap between what AI technology can theoretically do and what is actually being deployed in practice. The technology advances rapidly, but real-world adoption is slowed by regulatory hurdles, workflow integration, business model changes, and the challenge of validating AI outputs in high-stakes domains like medicine.
+    </div>
+
+    <div class="definition-box">
+      <strong>AGI Time:</strong> A concept Sebastian Bubeck uses to measure AI capability by asking: "For how long can AI sustain human-level thinking on a problem?" GPT-4 was "AGI seconds." Models that won the International Math Olympiad were "AGI hours." Current frontier models are at "AGI days to weeks." Solving truly hard scientific problems requires "AGI years" -- a capability that does not yet exist.
+    </div>
+
+    <div class="commentary-section">
+      <h4>The Virtual Patient Revolution</h4>
+      <p>Hoyon Pun's presentation on AI for medical discovery is striking for its concrete, near-term impact. The key insight is that hospitals already collect massive amounts of data through routine care -- diagnosis records, imaging, treatment histories, outcomes. AI can mine this data to simulate what would happen in a clinical trial, potentially replacing or supplementing studies that currently cost hundreds of millions of dollars and take years to complete. The "GigaTime" system that generates virtual spatial proteomics from cheap pathology slides is a powerful example: it transforms a $1,000-per-sample analysis into something that can be done at population scale for a few dollars.</p>
+    </div>
+
+    <div class="highlight-box">
+      <strong>Key Insight:</strong> Bubeck's "miraculous identity" in his tree combinatorics proof -- an algebraic insight that neither he nor other experts can explain -- crystallizes a central tension in AI-assisted science. The AI solved the problem, but nobody understands how. This is simultaneously thrilling (it works!) and deeply unsettling (we can't learn from it). Bubeck's proposed solution -- that AI should push scientists to refocus on understanding rather than just producing results -- may be the most important idea to come out of this panel.
+    </div>
+
+    <div class="commentary-section">
+      <h4>Scaffolding as the Secret Weapon</h4>
+      <p>Bubeck's presentation makes a crucial technical point that goes beyond his specific math problem. You cannot just throw a hard problem at a frontier model and expect it to solve it. The breakthrough came from building a "scaffolding" -- a system of multiple AI agents that propose ideas, execute them, verify results, and merge insights -- and from the clever strategy of feeding the model an easier version of the problem first and building from there. This "harness" approach, mentioned earlier in the math panel by Needell, is emerging as a major theme: the most powerful results come not from the raw model but from the human-designed architecture surrounding it.</p>
+    </div>
+
+    <div class="commentary-section">
+      <h4>The Three Roles of Science</h4>
+      <p>Bubeck's framework of three roles -- technology (acting on the world), understanding (comprehending the world), and competition (the game of science) -- offers a useful lens for thinking about AI's impact. Technology benefits unambiguously from AI. Competition may be diminished, as in chess. But understanding -- the part Bubeck cares most about -- is where the human role becomes most essential and most interesting. His provocative suggestion that scientists should write fewer papers and focus more on consolidating and explaining knowledge challenges the "publish or perish" culture of modern academia.</p>
+    </div>
+
+    <div class="quote-box">
+      <strong>Notable Quote:</strong> "GPT-4 was AGI seconds. O1 was AGI minutes. The IMO gold medal model was AGI hours. Now we are at AGI days, maybe weeks. If you want to solve a really hard problem, you need years of thinking. Models cannot do that at all. This is like a starting grad student project -- nothing more than that." -- Sebastian Bubeck, OpenAI
+    </div>
+
+    <div class="quote-box">
+      <strong>Notable Quote:</strong> "I was trained as an NLP guy, and when I saw GPT-4 months before release, I knew my job was done there. I had to find another job. But the most immediate thing for me is when loved ones come telling me they have cancer. I'm hoping AI will replace my job there -- to solve cancer." -- Hoyon Pun, Microsoft Research
+    </div>
+
+    <div class="highlight-box">
+      <strong>Key Insight:</strong> The industry panelists identify a critical asymmetry: AI advances fastest in domains where answers can be verified quickly (math proofs, code that compiles, game outcomes) and slowest where verification is slow or ambiguous (biology, medicine, social science). This suggests that building better verification systems -- "world models" that can rapidly test hypotheses -- may be the single most important enabler for AI-driven scientific discovery.
+    </div>
+  </div>
+</div>

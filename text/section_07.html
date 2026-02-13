@@ -1,0 +1,61 @@
+<div class="page-content">
+  <h2>Section 7: Schaefer &mdash; AI for PDEs &amp; Discovering Physical Laws</h2>
+
+  <div class="transcript">
+    <span class="speaker speaker--guest">Hayden Schaefer:</span>
+    <p>I'm Hayden Schaefer and my research group and I work on a variety of different problems related to AI for science, AI for PDEs. I'm going to try to cover a lot of stuff in a few minutes.</p>
+    <p>The first direction we work on is AI and PDEs -- trying to come up with multitask, general-purpose solvers to be able to predict complex nonlinear dynamics just based on raw data. The idea is we train very large transformer-based networks that can read in a short amount of spatial-temporal snapshots. Think about a video that's just a few frames, and then try to predict what the next frames will be based on what we observe.</p>
+    <p>The goal is to do general-purpose numerical solvers where we don't tell the AI model what we're trying to solve. We let it make an inference based on the historical context. The hope is that these will be reusable -- we just have to train a large-scale network once and then apply it to a new task for downstream applications.</p>
+    <p>As a nice example, we train the model using a bunch of different fluid systems -- different physical parameters, different geometry, different initial conditions. We give the AI model, after training, a new sample of just ten snapshots and ask it to perform a generative task: predict the next ten. But we don't tell it what the parameters are or what system we're looking at. It has to make an assessment based on what it's seen in its training set.</p>
+    <p>The top row is the actual solution after time steps one, five, and nine. We ask it to generate this from the endpoint of the input. The middle row is a popular operator-based network that can do this prediction but is very good for single tasks and has difficulty when you don't prescribe what you're actually trying to solve. The last row is our prediction, and you can see -- at least visually -- it's very close. In terms of error metrics, it's only 5% error for this particular task. The AI model does not see this problem in its training set. It has to infer it based on its history.</p>
+    <p>In another direction, we work on AI for science -- and one of the interesting problems I've been studying now for over a decade is: can we uncover physical laws from data? Can I provide scientists with an AI tool where you just give us raw data and I can tell you what the governing equation or mathematical model is that the data actually obeys?</p>
+    <p>This is a very challenging task, but we have a lot of applications and methods that do this. What's really interesting -- and what we've been leveraging recently with novel AI methods -- is how to ask for more interpretable and explainable scientific intelligence out of the data. Not just what the mathematical equation is, but can we communicate information that is hard to write down as an equation, like a chaotic regime, or that the data is likely to reach a steady state? The goal is to provide scientists with a better feedback loop of how to understand and interpret the data in both a natural-language and a mathematical sense.</p>
+    <p>In another direction, we have AI for mathematical modeling. In a lot of cases we actually have a mathematical equation or physical law that governs the data, but computing or predicting using that model can be very costly, and we often don't have enough data to actually simulate the forward model. Maybe I'm missing boundary conditions or don't have enough parameters to resolve the potential field for the system. So we're using ML to mitigate some of the inaccuracies in our data and the lack of information for the model to simulate moving forward.</p>
+    <p>I want to show two examples. The video at the top-left corner is actually a video of fish in a contained space -- the raw images. What we want to do is take a mathematical model, fit what the potential is, understand how the fish interact based on an ML architecture, and then predict the density. So we're aligning mathematical models using ML tools, and you can see the ground-truth density and the predicted density based on the model.</p>
+    <p>For another application, we have gas or air in a closed space -- in a room. I don't have enough information to actually do the simulation. I don't have the boundary conditions completely and I don't have the parameters for the system. Instead, we run the Navier-Stokes equations and use ML to augment the observations we have into the system. It's more of an alignment problem: as the simulation is moving, can I align it towards the observations I do have? And you can see this is actually the velocity field and the temperature in the room, and it gets strong fidelity to the ground truth. So this is really built-in data-simulation fusion using ML.</p>
+    <p>Of course, all these techniques and tools rely heavily on optimization. In order to train the hyperparameters for the large-scale models, we have to optimize, and in order to learn what the dynamics are, we're optimizing against high-dimensional data and high-dimensional parameter spaces. We work on two different thrusts in optimization.</p>
+    <p>The first is optimization geared towards physical modeling. Instead of just using black-box optimization routines, we want to respect -- as we're doing the training -- what the physical systems are. We might have imbalances between the data sets, or we may need to impose after training that physical quantities are conserved or energies are conserved. How we do that is through meta-learning strategies or fine-tuning strategies where we optimize physical properties after we've trained the model completely.</p>
+    <p>We also work on optimizing large language models. An important task is to make them more efficient. Recently there's been a push for these 2D or matrix-aware optimization routines like MUON that do a really good job at optimizing the parameters in a faster manner because they're aware of the matrix structure that appears in the attention layers. What we're doing is mitigating issues of instability that can occur with this type of optimization from aggressive learning rates. We add adaptivity into the system, and as a test we run a small experiment and a medium experiment training NanoGPT or GPT-2 using our model and comparing it to two state-of-the-art optimization routines -- AdamW and the MUON algorithm. In both cases we get increased speed and a lower steady-state loss. For fair comparison, everything is trained over a sweep of parameters -- we tried to find the best parameters for each system.</p>
+  </div>
+
+  <div class="commentary">
+    <h3>Explained Simply</h3>
+
+    <div class="commentary-section">
+      <h4>What Schaefer's Group Is Building</h4>
+      <p>Imagine you film a few seconds of water swirling in a bathtub. Schaefer's team is building AI systems that can watch those few seconds and then predict what the water will do next -- without anyone telling the AI what kind of fluid it is, how fast it's moving, or what shape the container is. The AI figures all of that out on its own from the visual data.</p>
+      <p>This is a big deal because traditionally, to simulate fluid flow, you need to write down the exact equations (the Navier-Stokes equations), know all the boundary conditions (the shape of the container, the temperature, the pressure), and then run expensive computations. Schaefer's approach skips much of that setup: train a general-purpose AI once on many different fluid scenarios, and then it can handle new ones it has never seen before -- with only about 5% error.</p>
+    </div>
+
+    <div class="commentary-section">
+      <h4>Discovering Laws from Data</h4>
+      <p>One of the most ambitious goals here is the reverse engineering of physical laws. Instead of starting with Newton's equations and predicting what happens, you start with what happened and ask: what equations could produce this? It's like watching a ball arc through the air and deducing the law of gravity from the footage alone. Schaefer's group has been working on this problem for over a decade, and the new frontier is making these discoveries not just mathematically precise but also interpretable -- the AI can explain in plain language what it found, not just hand you an equation.</p>
+    </div>
+
+    <div class="commentary-section">
+      <h4>The Fish Tank and the Room: Aligning Models with Reality</h4>
+      <p>Two vivid examples show how ML can fill in the gaps when your mathematical model is incomplete. In the fish-tracking example, the team films real fish, uses ML to learn how the fish interact (attraction, repulsion, schooling behavior), and plugs that into a mathematical framework to predict fish density over time. In the room-airflow example, they don't have all the boundary conditions needed to simulate airflow, so they run the physics equations as best they can and use ML to nudge the simulation toward the real observations. The result is an accurate map of temperature and air velocity in the room -- something that would be impossible with physics or data alone.</p>
+    </div>
+
+    <div class="commentary-section">
+      <h4>Making LLM Training Faster</h4>
+      <p>In a completely different direction, Schaefer's team also works on the optimization algorithms that train large language models. They've improved on the MUON algorithm -- a newer training method that understands the matrix structure inside transformer attention layers -- by adding adaptive step sizes that prevent the kind of instabilities that can crash a training run. Their version trains GPT-2 faster and reaches a lower final error than both AdamW (the current industry standard) and the original MUON.</p>
+    </div>
+
+    <div class="definition-box">
+      <strong>PDE (Partial Differential Equation):</strong> A mathematical equation that describes how a quantity (like temperature, pressure, or fluid velocity) changes across both space and time simultaneously. PDEs are the language of physics: they govern how heat spreads through a metal bar, how sound waves propagate, and how ocean currents flow. Solving them usually requires heavy computation, which is why AI-based solvers are so appealing.
+    </div>
+
+    <div class="definition-box">
+      <strong>Navier-Stokes Equations:</strong> The specific set of PDEs that describe the motion of fluids -- liquids and gases. They account for viscosity (thickness), pressure, and external forces. These equations are so important and so difficult that proving whether smooth solutions always exist is one of the seven Millennium Prize Problems in mathematics, with a $1 million bounty. In practice, engineers use approximate numerical solutions for everything from airplane design to weather forecasting.
+    </div>
+
+    <div class="definition-box">
+      <strong>Physics-Informed Neural Networks (PINNs):</strong> Neural networks that are trained not only on data but also on the known physical laws (expressed as PDEs). During training, the network is penalized for violating physics -- for example, if it predicts fluid flow that doesn't conserve mass. This hybrid approach combines the flexibility of deep learning with the rigor of physics, often producing more accurate and physically plausible results than pure data-driven models, especially when data is scarce.
+    </div>
+
+    <div class="highlight-box">
+      <strong>Key Insight:</strong> Schaefer's work shows that the most powerful AI for science doesn't replace physics -- it partners with it. By building AI systems that respect physical laws, fill in missing data, and even discover new equations, his group is creating tools where mathematics and machine learning reinforce each other rather than competing.
+    </div>
+  </div>
+</div>

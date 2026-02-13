@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI for Science - Reader</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/reader.css">
+</head>
+<body>
+
+  <!-- Fixed Top Bar -->
+  <header class="top-bar">
+    <a href="index.html" class="top-bar__back">&#8592; <span>Home</span></a>
+    <div class="top-bar__title">AI for Science Study Guide</div>
+    <span id="page-counter" class="top-bar__page-counter">1 / 12</span>
+  </header>
+
+  <!-- View Indicator -->
+  <div id="view-indicator" class="view-indicator view-indicator--all">Full View</div>
+
+  <!-- Main Page Display -->
+  <main id="page-display" class="reader-main">
+    <div id="text-view" class="text-view">
+      <div id="text-content">
+        <div class="reader-loading">
+          <div class="reader-loading__spinner"></div>
+          <div class="reader-loading__text">Loading...</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Bottom Navigation -->
+  <nav class="bottom-nav">
+    <button id="btn-prev" class="bottom-nav__btn bottom-nav__btn--prev" disabled>
+      <span>Prev</span>
+    </button>
+    <div class="bottom-nav__center">
+      <input id="page-input" class="bottom-nav__page-input" type="number" min="1" max="12" value="1">
+      <span class="bottom-nav__separator">/</span>
+      <span class="bottom-nav__total">12</span>
+    </div>
+    <button id="btn-next" class="bottom-nav__btn bottom-nav__btn--next">
+      <span>Next</span>
+    </button>
+  </nav>
+
+  <!-- Progress Bar -->
+  <div class="progress-bar">
+    <div id="progress-bar" class="progress-bar__fill" style="width: 8.33%"></div>
+  </div>
+
+  <!-- Zoom Panel -->
+  <div id="zoom-panel" class="zoom-panel">
+    <button class="zoom-panel__btn" data-zoom="70" title="70%">A&#8722;</button>
+    <button class="zoom-panel__btn" data-zoom="80" title="80%">A&#8722;</button>
+    <button class="zoom-panel__btn" data-zoom="90" title="90%">A</button>
+    <button class="zoom-panel__btn active" data-zoom="100" title="100%">A</button>
+    <button class="zoom-panel__btn" data-zoom="110" title="110%">A+</button>
+    <button class="zoom-panel__btn" data-zoom="120" title="120%">A+</button>
+    <button class="zoom-panel__btn" data-zoom="130" title="130%">A+</button>
+    <button class="zoom-panel__btn" data-zoom="140" title="140%">A+</button>
+  </div>
+
+  <!-- Context FAB Button -->
+  <button id="context-fab" class="context-fab" title="Menu (M)">&#9776;</button>
+
+  <!-- Context Menu Overlay -->
+  <div id="context-menu" class="context-overlay">
+    <div class="context-menu">
+      <div class="context-menu__header">
+        <span class="context-menu__title">Menu</span>
+        <button id="ctx-close" class="context-menu__close" title="Close (Esc)">&times;</button>
+      </div>
+
+      <!-- Navigation -->
+      <div class="context-menu__section">
+        <div class="context-menu__label">Navigation</div>
+        <div class="context-menu__nav" style="display:flex;align-items:center;justify-content:space-between;">
+          <button id="ctx-prev" class="context-menu__nav-item">&#8592; Previous</button>
+          <span id="ctx-page-label" class="context-menu__page-label">Page 1 of 12</span>
+          <button id="ctx-next" class="context-menu__nav-item">Next &#8594;</button>
+        </div>
+      </div>
+
+      <!-- View & Theme Toggles -->
+      <div class="context-menu__section">
+        <div class="context-menu__label">Display</div>
+        <button id="ctx-toggle-view" class="context-menu__nav-item" style="width:100%;justify-content:center;">
+          &#128065; Toggle View Mode (V)
+        </button>
+        <button id="ctx-toggle-sepia" class="context-menu__nav-item" style="width:100%;justify-content:center;margin-top:var(--space-1);">
+          &#9788; Toggle Sepia Theme (S)
+        </button>
+      </div>
+
+      <!-- Search -->
+      <div class="context-menu__section">
+        <div class="context-menu__label">Search Sections</div>
+        <div class="context-menu__search">
+          <input id="search-input" class="context-menu__search-input" type="text" placeholder="Search topics...">
+        </div>
+        <div id="search-results" class="context-menu__search-results"></div>
+      </div>
+
+      <!-- Home Link -->
+      <a href="index.html" class="context-menu__nav-item" style="justify-content:center;border-top:1px solid var(--color-gray-100);padding-top:var(--space-3);margin-top:var(--space-2);">
+        &#8962; Back to Home
+      </a>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/pages-data.js"></script>
+  <script src="js/reader.js"></script>
+</body>
+</html>

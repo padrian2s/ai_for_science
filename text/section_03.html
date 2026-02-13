@@ -1,0 +1,99 @@
+<div class="page-content">
+  <h2>Section 3: Tao &mdash; The Erd&#337;s Problems &amp; AI</h2>
+
+  <div class="transcript">
+    <span class="speaker speaker--guest">Terry Tao:</span>
+    <p>We're now entering the era of scale. I will talk about just one case study, which has been buzzing on social media recently: the Erd&#337;s problems, which are the first large dataset of problems for which we can actually apply all these tools and get some idea of which ones are working and what the strengths and weaknesses are.</p>
+
+    <p>The Erd&#337;s problems are a collection of about a thousand problems, and there's a website started about three years ago by Thomas Bloom to systematically cover these. Erd&#337;s was a mathematician active in the 20th century, very prolific. He authored over 1,500 papers in mathematics &mdash; I think that's still the record. He collaborated with everybody. He didn't collaborate with me, but when I was ten, that's a picture of myself with him. When I met him, he just basically gave me a problem and we worked on it. We didn't solve it &mdash; it did get solved later, actually.</p>
+
+    <p>He was famous not just for his research but for posing problems constantly. He even put cash prizes on some of them. Most were like fifty or twenty dollars, nothing significant, but there are a few that are really quite influential. One of his most influential questions &mdash; how big does a set need to be before you can show that it contains certain patterns &mdash; he attached one of the biggest prizes, five thousand dollars, to it. It's still open, but there are many partial results that have themselves appeared in top journals. He had a knack of asking really good questions that are not impossible, not trivial, but just at the border where he knew any progress would be interesting.</p>
+
+    <p>Erd&#337;s called these problems "acorns" &mdash; requiring deep and subtle new insights from which a mighty oak can develop. However, he posed a thousand-odd problems, and they were not all acorns. Some turn out to be ridiculously easy. He called those "marshmallows" &mdash; serving as a tasty tidbit for a few moments of fleeting enjoyment. It's a very diverse set of problems.</p>
+
+    <p>I should insert some disclaimers, because recently AI companies say "we just solved five Erd&#337;s problems, no wait, six!" and the implication is that this is what mathematicians do all the time. Problem solving is only one aspect of mathematical research. We are also interested in understanding concepts, communicating, and simplifying things. The reason we solve problems is not so much because the problem itself has all these applications, but because the process of finding the solution often discovers new techniques. The problem of finding arithmetic progressions led to the whole field of additive combinatorics. It's not just getting the solution, but all the things that come with working towards one.</p>
+
+    <p>Nevertheless, there are a thousand problems, some solved, some unsolved. To a computer scientist, it looks really like a benchmark. It is not a benchmark, but it has become a very tempting target because you can actually measure how many problems your new AI tool can solve. It's a nice dataset to take a snapshot of where these tools are right now, and you can start doing comparative tests of what types of AI usage are more effective than others.</p>
+
+    <p>There has been a lot of hype, so I should say right away: even though there are major important problems in the Erd&#337;s set, currently AI has not really made progress on the most high-profile problems, the ones that mathematicians most want to solve. To date, the problems AI has solved are the ones that are attention-bottlenecked &mdash; ones that were posed once or twice in a paper but had almost no follow-up literature. Nobody had really looked at them. But AI can scale, and we are making progress on a lot of problems for which we didn't have enough human attention. Even with all the hype, there has been a really visible increase in capability. It is not pure hype by any means.</p>
+
+    <p>What these advances show is that there is a complementary way to do mathematics. Humans traditionally work in small groups on hard problems for months, and we will keep doing that. But we can also now set AI to sweep a thousand problems and pick up all the low-hanging fruit &mdash; take twenty different techniques, apply them to ten thousand problems, and see which ones can be solved. That capability is present today.</p>
+
+    <p>We started tracking this systematically last September. Right now, of the thousand-odd problems, about 699 are unsolved and about 480 are solved. The count has been increasing steadily over time. AI started making big progress recently. There was actually a spike when literature search tools came out &mdash; AI research tools had discovered a whole bunch of solutions that were in the literature but we hadn't recorded. Then there's been this acceleration, although recently there's been a plateau. We've also been making progress formalizing a lot of the solutions in this language called Lean.</p>
+
+    <p>Some of the progress is kind of mundane now &mdash; well, it was amazing six months ago and now we think it's mundane. It's like web search. I remember when Google came out in the 2000s and my jaw dropped at how amazing it was that I could access the entire internet. We just take it for granted nowadays, and it's beginning to be like that with these tools too.</p>
+
+    <p>Six months ago, these deep research tools came out. You can get an AI to search all kinds of literature and find obscure matches to your problem &mdash; "oh, there's a paper from 1970, in a different language often literally, in a different field, but it solves the problem with a tiny bit of modification." We basically have semantic search now, which we've been wanting for years. They still occasionally hallucinate bad references, but at least with literature search you can go and check the source material. Twenty or thirty problems were solved this way.</p>
+
+    <p>It's extremely easy now to use AI to generate code and numerical data. We can do much more numerical experimentation. And we can formalize so much faster now. The translation of an informal proof to a formal proof used to be really tedious &mdash; it took weeks. Now people can do it in hours. This has been important for working with AI, because if someone says "hey, I've solved this problem" and hands you five or six pages of AI-generated text, it's often got rubbish in it and no one has the time to look through it all. But if we can automatically convert them into formal proofs &mdash; sometimes it works, sometimes it doesn't &mdash; we can handle a big influx of AI-generated solutions.</p>
+
+    <p>Another reason we're making so much progress is that we have a community now. Thomas has worked really hard to build it. There's a discussion forum with community rules. Importantly, we're neither overly pro-AI nor anti-AI. What has made the Erd&#337;s problems particularly amenable is that we welcome people to contribute AI-generated solutions, as long as you follow the rules: you have to disclose AI usage, you can't pretend a human came up with it, you have to summarize and be responsible for the content, and you can't just spam the discussion. These are reasonable rules, and they've actually managed to work. By and large, we've had constructive discussions between people doing math traditionally and those using AI.</p>
+
+    <p>Let me give some actual examples of how humans and AI have interacted on the site. Erd&#337;s Problem 367 is still technically unsolved because it asked two questions about a certain number-theoretic object. AI was able to prove one of the two inequalities; the other is still open. What happened was a human on the forum played with it and said, "I got a construction &mdash; I think it works, but there's this one identity that needs to be proved." He could check the first few cases numerically. I logged on the site, and instead of working it out by hand, I just gave it to Gemini. And Gemini proved the missing step &mdash; using fancier technology than was needed, some algebraic number theory. I could read the proof. I translated it into something simplified and explained it on the forum. Then a third person, Alexi, took that proof and fed it into one of these AI formalizers &mdash; in this case converting it into a Lean proof. It checked out. We have a completely confirmed proof of that result. That's a typical interaction.</p>
+
+    <p>Here's another problem we did fully solve: Problem 1024. It's an optimization problem. You can think of it as a coin game. Two players, Alice and Bob. Alice has a stack of coins and she splits them into N piles &mdash; some tall, some short. Then Bob selects some piles to keep for himself, but the rule is Bob can only select an increasing sequence or a decreasing sequence of piles, not an alternating one. Bob will select the combination that gives him the most coins, and Alice will try to arrange the coins so she loses the least. The question is: what is the fair price of this game as a fraction of the total coins? That quantity is called C(N), and that's what Erd&#337;s asked about.</p>
+
+    <p>One of the participants on the forum started working this out with small N using linear programming and made a conjecture: if you have a square number of piles, k-squared, then the optimal cost is 1/k. So if you have 16 piles, Bob can basically take one quarter of Alice's money. It turned out this was not a new conjecture &mdash; when we ran a deep research tool, we found the exact same conjecture was made back in 1980, but we didn't know about it.</p>
+
+    <p>Then nothing happened for two months. Nobody was able to solve the conjecture until someone decided to just put it into an AI formalizer and see if it could solve and formalize it in Lean. And it did. The success rate was like one or two percent across hundreds of problems, but this one worked. The proof was quite interesting &mdash; the AI converted the coin problem into a problem about packing little squares into a big square. It caught us by surprise. We did later find precedent for this trick in a 1959 paper, and the particular result had already been solved by a different method in 2016. So this wasn't a novel solution to an open problem, but it was an interesting and rather creative method.</p>
+
+    <p>It only solved the square case, though. For other values of N, you could get up to about N equals eight or nine with linear programming, but then the problem became exponentially big. I used a different AI tool called AlphaEvolve to work out configurations up to N equals 16. It gave me probably-optimal coin configurations, and based on the patterns I could make a conjecture. I first made a rather complicated conjecture, then a collaborator simplified it. Then a further co-author, Lawrence Wu, noticed that this conjecture was very similar to a function that appeared in a separate problem about square packing that had just been solved about two years ago. By putting that together with everything we'd done, we solved Problem 1024, and it's now formalized in Lean. It's a fascinating interplay between humans and AI.</p>
+
+    <p>To wrap up: AI is already enabling all kinds of new ways to do math, at scales and speeds we haven't seen before. What's really important is that once you collect a systematic set of problems or tasks, lots of good things start happening. In computer science, we've known this &mdash; once you get a good dataset, you can do all kinds of things. But mathematicians haven't put enough value on datasets. Once you have a good set of things to work on, there are so many tools out there and so many people &mdash; who may not be professional mathematicians &mdash; willing to experiment that you start getting all kinds of unexpected progress. Some problems were basically solved by high school students with AI, and we've been able to check it because it's formalized in Lean.</p>
+
+    <p>The other thing that's really important is that we have verification. Everyone has seen what happens if you allow unverified AI to take over. AI by themselves are already great, but I think there's so much potential in human-AI collaboration, particularly for long-tail applications. For the hardest problems, it's really not clear how to apply any of this. But if you have a thousand medium-difficulty problems, then AI is great.</p>
+  </div>
+
+  <div class="commentary">
+    <h3>Explained Simply</h3>
+
+    <div class="commentary-section">
+      <h4>Who Was Erd&#337;s?</h4>
+      <p>Paul Erd&#337;s (1913&ndash;1996) was one of the most prolific mathematicians in history, publishing over 1,500 papers. He was a wandering scholar who traveled the world, staying with fellow mathematicians, collaborating with everyone, and constantly posing problems. He was famous for offering small cash prizes &mdash; sometimes just twenty dollars, occasionally thousands &mdash; for solutions. Tao himself met Erd&#337;s as a ten-year-old. Erd&#337;s left behind roughly a thousand unsolved (or partially solved) problems scattered across decades of publications. A researcher named Thomas Bloom created a website to collect and track them all systematically.</p>
+    </div>
+
+    <div class="commentary-section">
+      <h4>The Problems as a Dataset</h4>
+      <p>Tao's key insight is that this collection of a thousand problems is, for the first time, big enough to study AI's mathematical abilities in a systematic way. Instead of celebrating one or two headline results, you can look at patterns: which types of problems does AI solve? Which tools work best? What's the success rate? This turns mathematics into something closer to a benchmarking exercise &mdash; though Tao is careful to say the problems are not just a benchmark, because the real value of solving them lies in the new ideas and techniques discovered along the way.</p>
+    </div>
+
+    <div class="commentary-section">
+      <h4>How AI Has Helped So Far</h4>
+      <p>Tao identifies several distinct ways AI is contributing. First, <strong>literature search</strong>: deep research tools can find obscure papers from decades ago, in different fields or different languages, that turn out to contain relevant solutions. Around 20&ndash;30 problems were resolved just by discovering existing solutions nobody had connected to the Erd&#337;s problems. Second, <strong>numerical experimentation</strong>: AI can quickly generate data, run computations, and test conjectures at scales that would be tedious by hand. Third, <strong>formalization</strong>: converting informal mathematical proofs into machine-checked formal proofs (in the language Lean) used to take weeks and now takes hours. This is critical because it lets the community verify AI-generated proofs that might otherwise contain errors. Fourth, <strong>direct problem-solving</strong>: AI tools can occasionally generate complete proofs, with a success rate of about 1&ndash;2% when tried across many problems &mdash; which, given there are a thousand problems, still yields meaningful progress.</p>
+    </div>
+
+    <div class="commentary-section">
+      <h4>The Coin Game: Problem 1024</h4>
+      <p>Tao tells the story of Problem 1024 in detail as a showcase of human-AI collaboration. The problem is essentially a game between two players, Alice and Bob, involving splitting coins into piles. The mathematical question is about an optimal strategy. A forum participant used linear programming to compute answers for small cases and guessed a pattern. A deep research tool discovered the same conjecture had been made in 1980. An AI formalizer then proved the conjecture for square numbers of piles by creatively reframing the coin problem as a square-packing problem. Tao used AlphaEvolve to extend the data. A collaborator noticed the conjectured formula matched one from a recently solved square-packing problem. Combining all of this &mdash; human intuition, AI computation, AI literature search, AI formalization &mdash; the team fully solved the problem.</p>
+    </div>
+
+    <div class="commentary-section">
+      <h4>Why This Collaboration Model Works</h4>
+      <p>Several factors make this collaboration successful. The community has clear, sensible rules: disclose AI use, take responsibility for the content, don't spam. The problems are well-defined with clear success criteria (solved or not solved). Lean formalization provides a trustworthy verification layer &mdash; if the formal proof compiles, the result is correct, regardless of whether a human or AI found it. And the thousand-problem scale means there's always something for someone to try, lowering the barrier so that even high school students can make genuine contributions. Tao emphasizes that this works best for the "long tail" of medium-difficulty problems. For the very hardest, most famous problems, AI has not yet made a dent.</p>
+    </div>
+
+    <div class="definition-box">
+      <strong>Erd&#337;s Problems:</strong> A collection of roughly 1,000 mathematical problems posed by Paul Erd&#337;s over his career, ranging from deep unsolved challenges ("acorns") to simpler puzzles ("marshmallows"). They span number theory, combinatorics, and other fields, and are now tracked on a community website maintained by Thomas Bloom.
+    </div>
+
+    <div class="definition-box">
+      <strong>Lean (Formal Proof Language):</strong> A programming language and proof assistant used to write mathematically rigorous, machine-verified proofs. If a proof "compiles" in Lean, it is guaranteed to be logically correct. Tao describes it as looking like "a mix between math and Python." It has become a crucial verification tool for checking AI-generated mathematical proofs.
+    </div>
+
+    <div class="definition-box">
+      <strong>AlphaEvolve:</strong> An AI tool (from Google DeepMind) that Tao used to discover optimal or near-optimal configurations for the coin game problem at scales beyond what linear programming could handle. It generates candidate solutions using evolutionary strategies guided by AI evaluation.
+    </div>
+
+    <div class="definition-box">
+      <strong>Deep Research:</strong> AI-powered literature search tools that can scan vast archives of academic papers and find connections to a given problem &mdash; including papers in different fields or different languages. Tao compares the impact to the arrival of Google search in the 2000s. These tools resolved 20&ndash;30 Erd&#337;s problems by finding existing solutions that the community didn't know about.
+    </div>
+
+    <div class="highlight-box">
+      <strong>Key Insight &mdash; The Coin Game (Problem 1024):</strong> Alice splits a stack of coins into N piles. Bob picks an increasing or decreasing subsequence of piles to maximize his take. Alice arranges piles to minimize her loss. The question: what fraction of the coins can Bob guarantee? For k&sup2; piles, the answer is 1/k. A forum participant conjectured this, an AI proved the square case by reframing it as a square-packing problem, Tao used AlphaEvolve to extend the data, and a collaborator connected the result to a recently solved packing theorem &mdash; completing the proof through a chain of human and AI contributions.
+    </div>
+
+    <div class="quote-box">
+      <strong>Erd&#337;s on "Acorns":</strong> Erd&#337;s classified his best problems as "acorns &mdash; requiring deep and subtle new insights from which a mighty oak can develop." Not all of his thousand-plus problems reached this standard; the easier ones he called "marshmallows &mdash; serving as a tasty tidbit for a few moments of fleeting enjoyment."
+    </div>
+  </div>
+</div>

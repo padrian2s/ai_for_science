@@ -1,0 +1,139 @@
+<div class="page-content">
+  <h2>Section 10: Panel 1 Q&A -- The Future of AI in Mathematics</h2>
+
+  <div class="transcript">
+    <span class="speaker speaker--host">Audience Member:</span>
+    <p>If you could wave a magic wand and get industry to build absolutely anything for math, what would you ask for?</p>
+
+    <span class="speaker speaker--guest">Deanna Needell:</span>
+    <p>I'd want a private tool where it could record all the interactions I have -- maybe like new glasses or something. Because when you do math, you don't just do it at a computer. You use whiteboards, you speak to somebody. I have a chat history with a collaborator that's over ten years long where we're just figuring out problems. If I could input all of that privately and have some sort of IDE that would help me learn the styles I use -- without giving it away -- I'd be very happy.</p>
+
+    <span class="speaker speaker--guest">Terence Tao:</span>
+    <p>Like a medium-sized language model that could live in its own little space?</p>
+
+    <span class="speaker speaker--guest">Deanna Needell:</span>
+    <p>Yes, some kind of federated learning model for this stuff would be very interesting, but that's tricky if you're going to run it in the cloud.</p>
+
+    <span class="speaker speaker--guest">Andrea Bertozzi:</span>
+    <p>I would want something that has transparency. If something could explain what the text embedding does, what that represents -- for a lot of the applications I work on, I need to understand the "why." Something that has the ability to answer: "You gave me this output. Why was this case put in this pile? Why was this patient labeled this way?" You can get a little bit of that obviously, but I think there's still a lot of opaqueness that would be important to address down the road.</p>
+
+    <span class="speaker speaker--guest">Deanna Needell:</span>
+    <p>Along those lines -- hallucinations. You want something that can check results carefully. The other thing that came up in a discussion with Terry was about literature tracking. If the AI gives you ideas for a theorem, you want to be able to trace back to the source accurately. In mathematics, it's important to give credit to previous works. Every time I ask AI questions about mathematics, the literature is a real weak point. It constantly gets names mixed up.</p>
+
+    <span class="speaker speaker--guest">Terence Tao:</span>
+    <p>There are specialist tools that do that, but they're not really integrated.</p>
+
+    <span class="speaker speaker--guest">Deanna Needell:</span>
+    <p>Exactly. A big bottleneck to using these tools is making it easy to verify what they say is correct. That could be Lean formalization, or it could just be the way mathematics is presented. For example, Terry, Apata -- who is a professor at Irvine -- and I were building a list of constants that appear in optimization across different branches of mathematics. I wanted to add constants from areas I didn't fully understand, like number theory. I had to figure out how to verify references without being an expert in the field. I hacked together a prompt with exact sentence-level details from different papers, but if I had the built-in ability to really confirm correctness -- or at least have data presented in a way that's palatable -- that would be ideal. And it's doable.</p>
+
+    <span class="speaker speaker--guest">Terence Tao:</span>
+    <p>Related to that -- if an LLM would come with confidence assessments for each of its lines. "I'm 80% confident this is true. I'm 100% confident. I'm 20% confident." That would help a lot.</p>
+
+    <span class="speaker speaker--guest">Andrea Bertozzi:</span>
+    <p>In a different direction: all the examples I showed in my slides, everything's built in-house. Our architecture takes inspiration from large language models, but we have to train the weights and prescribe the data ourselves. So I would like to have more than four GPUs. That would be helpful.</p>
+
+    <span class="speaker speaker--host">Audience Member:</span>
+    <p>Students can now use open tools, which is amazing. But how does this change both the definition of learning and the assessment of learning when it comes to students?</p>
+
+    <span class="speaker speaker--guest">Deanna Needell:</span>
+    <p>In one of my classes, I actually allowed students to use AI tools to do the proofs for certain homework problems. However, they had to verify that it was true. They were interacting with the tools in a smart way, and if it was wrong, they had to correct it. I graded them based on what they did, not what the AI tool did. Going back to my training as a mathematician -- I was trained based on proofs, and later I got into computing. Programming felt like an add-on to my experience, and now it's a tool we use everywhere. I feel like AI is just going to be added to our education as another thing you should learn how to use properly.</p>
+
+    <span class="speaker speaker--host">Audience Member:</span>
+    <p>You mentioned that you're restricted to four GPUs. Why not use cloud computing? Why not go with fully elastic infrastructure?</p>
+
+    <span class="speaker speaker--guest">Andrea Bertozzi:</span>
+    <p>I think we are restricted at UCLA for cloud computing. I'm not sure what the restriction is.</p>
+
+    <span class="speaker speaker--host">Audience Member:</span>
+    <p>Startups are pretty resource-limited and don't run into that problem. It seems like that shouldn't be a barrier.</p>
+
+    <span class="speaker speaker--guest">Andrea Bertozzi:</span>
+    <p>It's the money. We don't have it.</p>
+
+    <span class="speaker speaker--host">Audience Member:</span>
+    <p>It still takes roughly five years on average to get a PhD. With AI helping to eliminate a lot of non-value-adding activities, could students potentially finish in two or three years?</p>
+
+    <span class="speaker speaker--guest">Andrea Bertozzi:</span>
+    <p>If they use it correctly, it could help. But I'll be frank -- having trained 58 PhD students in my career, there are a lot of bottlenecks to getting a PhD that don't have much to do with the issues you're talking about. Students can spend a year or more just trying to find their way in what they want to do. Especially if they're a good student and pass their qualifying exams early, they may not be passionate about a specific problem yet. They take classes and float around for a while. I think that's the biggest time sink rather than the research tools. Once they're really geared up and working on things seriously, yes, AI will definitely speed things up. But finding your direction -- that's a different matter altogether. It'd be great if AI could help with that, but that's a different level of AI.</p>
+
+    <span class="speaker speaker--guest">DK (Deanna Needell):</span>
+    <p>I think that points to: what are you curious about? What are you motivated by? AI tools can supercharge you in that direction if you find that thing, but it's not easy to find. Andrea basically just described my PhD -- she wasn't my advisor, but at some point she almost was. I floated around for quite a while, and it wasn't until my fourth year after switching between computer vision, low-dimensional topology, and a bunch of different things that I decided I wanted to do optimization. I was very motivated by it, but it's not something you teach in the traditional sense. You're introduced to it, maybe you find a motivating speaker, maybe not.</p>
+
+    <span class="speaker speaker--host">Audience Member:</span>
+    <p>Terry mentioned the Erdos benchmark. The model hasn't really solved an Acorn problem yet. When will that happen? At the rate of progress, when do you think AI can actually win a Fields Medal?</p>
+
+    <span class="speaker speaker--guest">Terence Tao:</span>
+    <p>It's already got a Nobel Prize, I guess. I think we'll be surprised. My personal belief is that AI is best optimized for slightly different tasks than humans are. All these medals and awards are aimed at human achievers. I think there will be other medals and achievements that will be suited for AIs to attack. Of course, there's the best press if you can compete with a human head-to-head. But I don't know -- wait and see.</p>
+
+    <span class="speaker speaker--host">Audience Member:</span>
+    <p>In addition to being an automated theorem prover, Lean is a programming language. Has anyone thought about tighter integration along those fronts -- doing computational simulations in the same language you'd do your verification?</p>
+
+    <span class="speaker speaker--guest">Terence Tao:</span>
+    <p>It's a lot slower. I had a project where we spent a few days just trying to work out that log 2 was 0.693. We eventually figured out how to do it reasonably efficiently in Lean, but it was actually a trivial task. It gives you a 100% guarantee, but there's a big trade-off with performance.</p>
+
+    <span class="speaker speaker--host">Audience Member:</span>
+    <p>If you were given 10,000 GPUs running for a year, how would you scale automated theorem proving? How can you make it truly automated?</p>
+
+    <span class="speaker speaker--guest">Deanna Needell:</span>
+    <p>I don't know that it would be fully automated in the end, but you could build a good harness. A lot of companies have done this recently. For example, Axia Math built a harness around a coding model and got a pretty good system -- they proved some results. I think there's a lot to be gained from building a good harness still.</p>
+
+    <span class="speaker speaker--host">Moderator:</span>
+    <p>What's a harness?</p>
+
+    <span class="speaker speaker--guest">Deanna Needell:</span>
+    <p>A harness is basically teaching the model to use the coding environment, read a paper, use different tools, and then applying reinforcement learning on top to see whether it was successful. A lot of people have gotten mileage in the last six months from building a good harness. For example, in one of the papers OpenAI released, they mentioned having an in-house harness that could work for two straight days.</p>
+
+    <span class="speaker speaker--host">Audience Member:</span>
+    <p>We all know that AI uses an awful lot of electricity. Could you embed an instruction in AI to tell it that whatever it's doing, it has to find a way to use the minimum amount of electricity?</p>
+
+    <span class="speaker speaker--guest">Andrea Bertozzi:</span>
+    <p>This is a great problem and something I've been thinking about. I just got a bit of funding to work with somebody on a position paper on exactly this issue. I don't have an answer, but I think it's an important question. There are ways to take algorithms that run on CPUs instead of GPUs and do very good calculations, then pair them with things that have to run on GPUs like language models. We should be looking at how to best design algorithms to be not only top-performing but also power-efficient.</p>
+    <p>Think about the analogy with automobiles. We went through the whole leaded gas, unleaded gas transition. I remember that back in the 70s. Now we're going to electric vehicles and more efficient cars. There's been this progression of different design models for the automobile, and I think our algorithms need to go through that too. We could potentially save a lot in power needs, and by doing so, actually do even more with these models. It's not necessarily going to curb what you can do -- it could be a win-win situation.</p>
+
+    <span class="speaker speaker--host">Moderator:</span>
+    <p>That's a great point to end the panel. Thank you very much.</p>
+  </div>
+
+  <div class="commentary">
+    <h3>Explained Simply</h3>
+
+    <div class="commentary-section">
+      <h4>What Mathematicians Actually Want from AI</h4>
+      <p>This Q&A session reveals what working mathematicians really wish they had from AI -- and it is not just "make the math faster." Their wish lists are surprisingly practical and human-centered. Needell wants a private AI assistant that learns from years of her personal whiteboard sessions and chat histories. Bertozzi wants transparency -- not just answers, but explanations of why the AI made particular decisions. Tao wants confidence scores attached to every claim an AI makes. These requests paint a picture of researchers who see AI as a promising but deeply imperfect collaborator that needs to earn their trust.</p>
+    </div>
+
+    <div class="definition-box">
+      <strong>Harness (AI scaffolding):</strong> A software framework built around an AI model that teaches it to use external tools -- like a coding environment, academic papers, or verification systems. Think of it as building a workbench and set of instructions around a powerful but unfocused tool, so it can tackle complex, multi-step problems instead of just answering single questions.
+    </div>
+
+    <div class="definition-box">
+      <strong>Federated Learning:</strong> A technique where an AI model is trained across multiple devices or locations without sharing the raw data itself. This matters for mathematicians who want personal AI assistants trained on their private work without uploading sensitive research to the cloud.
+    </div>
+
+    <div class="definition-box">
+      <strong>Lean:</strong> Both a programming language and a formal proof verification system. Mathematicians can write proofs in Lean and have them checked automatically with 100% certainty. The trade-off, as Tao notes, is that even simple calculations can be painfully slow compared to conventional programming languages.
+    </div>
+
+    <div class="commentary-section">
+      <h4>The PhD Pipeline and AI</h4>
+      <p>The exchange about whether AI could shorten PhD timelines is revealing. Bertozzi -- who has advised 58 doctoral students -- pushes back on the assumption that the bottleneck is computational grunt work. The real time sink, she argues, is the deeply personal process of figuring out what problem you actually care about. Needell agrees, sharing that she drifted between computer vision, topology, and other fields before landing on optimization in her fourth year. This suggests that AI might accelerate the "doing" phase of a PhD but cannot easily replace the "discovering yourself as a researcher" phase.</p>
+    </div>
+
+    <div class="highlight-box">
+      <strong>Key Insight:</strong> The mathematicians' wish lists for AI converge on a single theme: trust through transparency. They want AI that can cite its sources accurately, explain its reasoning, quantify its own uncertainty, and keep their private work private. The message is clear -- raw capability is not enough. AI must become a trustworthy intellectual partner before it can truly transform mathematical research.
+    </div>
+
+    <div class="commentary-section">
+      <h4>The Energy Question</h4>
+      <p>The final question about AI's electricity consumption foreshadows a major tension in AI development. Bertozzi's automobile analogy is apt: just as cars evolved from gas-guzzlers to hybrids to electric vehicles, AI algorithms will need to become more energy-efficient. Her point that efficiency gains could actually expand what AI can do -- rather than limiting it -- reframes the sustainability challenge as an engineering opportunity rather than a constraint.</p>
+    </div>
+
+    <div class="quote-box">
+      <strong>Notable Quote:</strong> "If an LLM would come with confidence assessments of each of its lines -- 'I'm 80% confident this is true, I'm 100% confident, I'm 20% confident' -- that would help a lot." -- Terence Tao, on what would make AI tools genuinely useful for mathematics
+    </div>
+
+    <div class="quote-box">
+      <strong>Notable Quote:</strong> "Having trained 58 PhD students in my career, there are a lot of bottlenecks to getting a PhD that don't have much to do with the kinds of issues you're talking about. Students can spend a year or more just trying to find their way." -- Andrea Bertozzi, on why AI alone will not shorten the PhD
+    </div>
+  </div>
+</div>
